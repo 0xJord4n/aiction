@@ -1,5 +1,29 @@
 {
   "name": "aiction",
+  "author": {
+    "name": "Jordan",
+    "url": "https://github.com/0xjord4n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xjord4n/aiction.git"
+  },
+  "keywords": [
+    "ai",
+    "ai-action",
+    "github-action",
+    "llm",
+    "openai",
+    "anthropic",
+    "groq",
+    "mistral",
+    "openai"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/0xjord4n/aiction#readme",
+  "bugs": {
+    "url": "https://github.com/0xjord4n/aiction/issues"
+  },
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
