@@ -1,0 +1,20 @@
+name: "AIction"
+description: "GitHub Action for interacting with various AI providers"
+author: "https://github.com/0xjord4n"
+
+inputs:
+  config:
+    description: "Config to use for the action"
+    required: true
+
+outputs:
+  text:
+    description: "Generated text response"
+  usage:
+    description: "Usage information from the provider"
+  finishReason:
+    description: "Reason the generation finished"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

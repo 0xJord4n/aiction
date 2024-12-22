@@ -1,0 +1,32 @@
+name: Basic Prompt
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate AI Text
+        uses: ./
+        with:
+          config: >
+            {
+              "provider": "openai",
+              "provider_options": {
+                "api_key": "${{ secrets.OPENAI_API_KEY }}"
+              },
+              "prompt": "What is the capital of France?",
+              "model": "gpt-4"
+            }
+
+      - name: Output
+        run: |
+          echo "Text: ${{ steps.ai.outputs.text }}"
+          echo "Usage: ${{ steps.ai.outputs.usage }}"
+          echo "Finish Reason: ${{ steps.ai.outputs.finishReason }}"
