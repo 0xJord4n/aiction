@@ -1,5 +1,5 @@
 name: "aiction"
-description: "GitHub Action for interacting with various AI providers"
+description: "A powerful GitHub Action that enables seamless integration with various AI providers, allowing you to enhance your workflows with artificial intelligence capabilities. Supporting multiple providers including OpenAI, Anthropic, Groq, Mistral, and more."
 author: "https://github.com/0xjord4n"
 
 inputs:
