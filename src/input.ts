@@ -1,5 +1,5 @@
 import zod from "zod";
-import { Provider, Role } from "./types";
+import { Provider, Role } from "./types.d";
 
 export const providerOptionsSchema = zod.object({
   api_key: zod.string().optional(),
