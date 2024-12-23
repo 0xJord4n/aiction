@@ -1,5 +1,5 @@
 name: "axion - AI in Action"
-description: "GitHub Action for seamless AI integration with multiple providers (OpenAI, Anthropic, Groq, Mistral, etc) to enhance workflows."
+description: "GitHub Action for AI integration with multiple providers (OpenAI, Anthropic, Groq, etc) to enhance your workflows."
 author: "https://github.com/0xjord4n"
 
 inputs:
