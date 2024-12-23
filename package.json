@@ -1,12 +1,12 @@
 {
-  "name": "aiction",
+  "name": "aixion",
   "author": {
     "name": "Jordan",
     "url": "https://github.com/0xjord4n"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/0xjord4n/aiction.git"
+    "url": "git+https://github.com/0xjord4n/aixion.git"
   },
   "keywords": [
     "ai",
@@ -20,9 +20,9 @@
     "openai"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/0xjord4n/aiction#readme",
+  "homepage": "https://github.com/0xjord4n/aixion#readme",
   "bugs": {
-    "url": "https://github.com/0xjord4n/aiction/issues"
+    "url": "https://github.com/0xjord4n/aixion/issues"
   },
   "module": "src/index.ts",
   "type": "module",

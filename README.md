@@ -1,11 +1,11 @@
-# aiction
+# aixion
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Maintenance](https://img.shields.io/badge/maintained-yes-brightgreen)
 ![Contributions](https://img.shields.io/badge/contributions-welcome-orange)
-[![GitHub issues](https://img.shields.io/github/issues/0xjord4n/aiction)](https://github.com/0xjord4n/aiction/issues)
-[![GitHub stars](https://img.shields.io/github/stars/0xjord4n/aiction)](https://github.com/0xjord4n/aiction/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/0xjord4n/aiction)](https://github.com/0xjord4n/aiction/network)
+[![GitHub issues](https://img.shields.io/github/issues/0xjord4n/aixion)](https://github.com/0xjord4n/aixion/issues)
+[![GitHub stars](https://img.shields.io/github/stars/0xjord4n/aixion)](https://github.com/0xjord4n/aixion/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/0xjord4n/aixion)](https://github.com/0xjord4n/aixion/network)
 
 A powerful GitHub Action that enables seamless integration with various AI providers, allowing you to enhance your workflows with artificial intelligence capabilities. Supporting multiple providers including OpenAI, Anthropic, Groq, Mistral, and more.
 
@@ -58,7 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate AI Text
-        uses: 0xjord4n/aiction@v1
+        uses: 0xjord4n/aixion@v1
         with:
           config: >
             {
@@ -73,7 +73,7 @@ jobs:
 
 ## Prompting Methods
 
-aiction supports three different ways to interact with AI models:
+aixion supports three different ways to interact with AI models:
 
 ### 1. Simple Prompt
 
@@ -178,7 +178,7 @@ To contribute to this project:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/0xjord4n/aiction.git
+   git clone https://github.com/0xjord4n/aixion.git
    ```
 2. Install dependencies
 3. Make your changes
@@ -188,8 +188,8 @@ To contribute to this project:
 
 For issues, feature requests, or questions:
 
-- Open an [issue](https://github.com/0xjord4n/aiction/issues)
-- Submit a [pull request](https://github.com/0xjord4n/aiction/pulls)
+- Open an [issue](https://github.com/0xjord4n/aixion/issues)
+- Submit a [pull request](https://github.com/0xjord4n/aixion/pulls)
 
 ## License
 

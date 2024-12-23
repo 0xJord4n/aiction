@@ -14,7 +14,7 @@ jobs:
 
       - name: Generate AI Text
         uses: ./
-        id: aiction
+        id: aixion
         with:
           config: >
             {
@@ -28,6 +28,6 @@ jobs:
 
       - name: Output
         run: |
-          echo "Text: ${{ steps.aiction.outputs.text }}"
-          echo "Usage: ${{ steps.aiction.outputs.usage }}"
-          echo "Finish Reason: ${{ steps.aiction.outputs.finishReason }}"
+          echo "Text: ${{ steps.aixion.outputs.text }}"
+          echo "Usage: ${{ steps.aixion.outputs.usage }}"
+          echo "Finish Reason: ${{ steps.aixion.outputs.finishReason }}"
