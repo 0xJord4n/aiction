@@ -13,7 +13,7 @@ A powerful GitHub Action that enables seamless integration with various AI provi
 
 - **Multi-Provider Support**:
 
-  - OpenAI (GPT-3.5, GPT-4)
+  - OpenAI
   - Anthropic (Claude)
   - Groq
   - Mistral
@@ -58,7 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate AI Text
-        uses: 0xjord4n/aixion@v1
+        uses: 0xjord4n/aixion@v1.0.0
         with:
           config: >
             {
