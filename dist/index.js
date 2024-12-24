@@ -21,6 +21,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const provider_1 = __importDefault(__nccwpck_require__(4279));
 const ai_1 = __nccwpck_require__(6619);
+const fs_1 = __importDefault(__nccwpck_require__(9896));
 exports["default"] = (input) => __awaiter(void 0, void 0, void 0, function* () {
     const llmResponse = yield (0, ai_1.generateText)({
         model: (0, provider_1.default)(input.provider, input.provider_options)(input.model),
@@ -33,6 +34,11 @@ exports["default"] = (input) => __awaiter(void 0, void 0, void 0, function* () {
         presencePenalty: input.presence_penalty,
         stopSequences: input.stop,
     });
+    if (input.save_path) {
+        fs_1.default.writeFileSync(input.save_path, llmResponse.text, {
+            encoding: "utf-8",
+        });
+    }
     return {
         text: llmResponse.text,
         usage: llmResponse.usage,
@@ -129,6 +135,7 @@ exports.messageSchema = zod.object({
 exports.inputSchema = zod.object({
     provider: zod.nativeEnum(types_1.Provider),
     provider_options: exports.providerOptionsSchema,
+    save_path: zod.string().optional(),
     prompt: zod.string().optional(),
     system: zod.string().optional(),
     messages: zod.array(exports.messageSchema).optional(),
