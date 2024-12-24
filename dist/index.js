@@ -143,10 +143,15 @@ exports.providerOptionsSchema = zod.object({
     base_url: zod.string().optional(),
     headers: zod.record(zod.string(), zod.string()).optional(),
 });
-exports.messageSchema = zod.object({
+exports.messageSchema = zod
+    .object({
     role: zod.nativeEnum(types_1.Role),
-    content: zod.string(),
+    content: zod.string().optional(),
     content_path: zod.string().optional(),
+})
+    .refine((data) => data.content || data.content_path, {
+    message: "Either content or content_path must be provided",
+    path: ["content", "content_path"],
 });
 exports.inputSchema = zod.object({
     provider: zod.nativeEnum(types_1.Provider),

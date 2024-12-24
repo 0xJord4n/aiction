@@ -7,11 +7,16 @@ export const providerOptionsSchema = zod.object({
   headers: zod.record(zod.string(), zod.string()).optional(),
 });
 
-export const messageSchema = zod.object({
-  role: zod.nativeEnum(Role),
-  content: zod.string(),
-  content_path: zod.string().optional(),
-});
+export const messageSchema = zod
+  .object({
+    role: zod.nativeEnum(Role),
+    content: zod.string().optional(),
+    content_path: zod.string().optional(),
+  })
+  .refine((data) => data.content || data.content_path, {
+    message: "Either content or content_path must be provided",
+    path: ["content", "content_path"],
+  });
 
 export const inputSchema = zod.object({
   provider: zod.nativeEnum(Provider),
