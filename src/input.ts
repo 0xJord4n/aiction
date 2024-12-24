@@ -10,6 +10,7 @@ export const providerOptionsSchema = zod.object({
 export const messageSchema = zod.object({
   role: zod.nativeEnum(Role),
   content: zod.string(),
+  content_path: zod.string().optional(),
 });
 
 export const inputSchema = zod.object({
@@ -17,7 +18,9 @@ export const inputSchema = zod.object({
   provider_options: providerOptionsSchema,
   save_path: zod.string().optional(),
   prompt: zod.string().optional(),
+  prompt_path: zod.string().optional(),
   system: zod.string().optional(),
+  system_path: zod.string().optional(),
   messages: zod.array(messageSchema).optional(),
   model: zod.string(),
   temperature: zod.number().optional(),

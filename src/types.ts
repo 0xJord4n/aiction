@@ -1,4 +1,4 @@
-import { CoreMessage, LanguageModelUsage } from "ai";
+import { LanguageModelUsage } from "ai";
 import type { LanguageModelV1FinishReason } from "@ai-sdk/provider";
 
 export enum Provider {

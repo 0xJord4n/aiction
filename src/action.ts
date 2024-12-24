@@ -9,8 +9,20 @@ import path from "path";
 export default async (input: z.infer<typeof inputSchema>): Promise<Output> => {
   const llmResponse = await generateText({
     model: provider(input.provider, input.provider_options)(input.model),
-    prompt: input.prompt,
-    messages: input.messages as CoreMessage[],
+    prompt: input.prompt_path
+      ? fs.readFileSync(input.prompt_path, { encoding: "utf-8" })
+      : input.prompt,
+    system: input.system_path
+      ? fs.readFileSync(input.system_path, { encoding: "utf-8" })
+      : input.system,
+    messages: input.messages
+      ? (input.messages.map((message) => ({
+          role: message.role,
+          content: message.content_path
+            ? fs.readFileSync(message.content_path, { encoding: "utf-8" })
+            : message.content,
+        })) as CoreMessage[])
+      : undefined,
     maxTokens: input.max_tokens,
     temperature: input.temperature,
     topP: input.top_p,

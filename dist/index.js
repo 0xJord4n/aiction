@@ -26,8 +26,20 @@ const path_1 = __importDefault(__nccwpck_require__(6928));
 exports["default"] = (input) => __awaiter(void 0, void 0, void 0, function* () {
     const llmResponse = yield (0, ai_1.generateText)({
         model: (0, provider_1.default)(input.provider, input.provider_options)(input.model),
-        prompt: input.prompt,
-        messages: input.messages,
+        prompt: input.prompt_path
+            ? fs_1.default.readFileSync(input.prompt_path, { encoding: "utf-8" })
+            : input.prompt,
+        system: input.system_path
+            ? fs_1.default.readFileSync(input.system_path, { encoding: "utf-8" })
+            : input.system,
+        messages: input.messages
+            ? input.messages.map((message) => ({
+                role: message.role,
+                content: message.content_path
+                    ? fs_1.default.readFileSync(message.content_path, { encoding: "utf-8" })
+                    : message.content,
+            }))
+            : undefined,
         maxTokens: input.max_tokens,
         temperature: input.temperature,
         topP: input.top_p,
@@ -134,13 +146,16 @@ exports.providerOptionsSchema = zod.object({
 exports.messageSchema = zod.object({
     role: zod.nativeEnum(types_1.Role),
     content: zod.string(),
+    content_path: zod.string().optional(),
 });
 exports.inputSchema = zod.object({
     provider: zod.nativeEnum(types_1.Provider),
     provider_options: exports.providerOptionsSchema,
     save_path: zod.string().optional(),
     prompt: zod.string().optional(),
+    prompt_path: zod.string().optional(),
     system: zod.string().optional(),
+    system_path: zod.string().optional(),
     messages: zod.array(exports.messageSchema).optional(),
     model: zod.string(),
     temperature: zod.number().optional(),
