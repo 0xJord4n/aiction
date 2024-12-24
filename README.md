@@ -71,6 +71,63 @@ jobs:
             }
 ```
 
+## Input Methods
+
+aixion supports both direct text input and file-based input for prompts and messages:
+
+### File-Based Input
+
+You can now reference files for your prompts and system messages:
+
+```yaml
+config: >
+  {
+    "provider": "openai",
+    "provider_options": {
+      "api_key": "${{ secrets.OPENAI_API_KEY }}"
+    },
+    "prompt_file": ".github/prompts/analysis.txt",
+    "system_file": ".github/prompts/system.txt",
+    "model": "gpt-4"
+  }
+```
+
+For messages array, you can mix file-based and direct content:
+
+```yaml
+config: >
+  {
+    "provider": "openai",
+    "provider_options": {
+      "api_key": "${{ secrets.OPENAI_API_KEY }}"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content_file": ".github/prompts/system.txt"
+      },
+      {
+        "role": "user",
+        "content_file": ".github/prompts/user_query.txt"
+      },
+      {
+        "role": "assistant",
+        "content": "I understand your question. Let me help..."
+      }
+    ],
+    "model": "gpt-4"
+  }
+```
+
+**Note**: When using file-based inputs:
+
+- Use `prompt_file` instead of `prompt` to read from a file
+- Use `system_file` instead of `system` to read from a file
+- In messages array, use `content_file` instead of `content` to read from a file
+- File paths are relative to your repository root
+- Files must exist and be readable
+- You can mix direct content and file-based content in the messages array
+
 ## Prompting Methods
 
 aixion supports three different ways to interact with AI models:
