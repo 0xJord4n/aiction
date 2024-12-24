@@ -1,4 +1,4 @@
-import { Provider } from "./types.d";
+import { Provider } from "./types";
 import { createAnthropic } from "@ai-sdk/anthropic";
 import { createMistral } from "@ai-sdk/mistral";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";

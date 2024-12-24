@@ -1,5 +1,5 @@
-import zod from "zod";
-import { Provider, Role } from "./types.d";
+import * as zod from "zod";
+import { Provider, Role } from "./types";
 
 export const providerOptionsSchema = zod.object({
   api_key: zod.string().optional(),
@@ -7,14 +7,17 @@ export const providerOptionsSchema = zod.object({
   headers: zod.record(zod.string(), zod.string()).optional(),
 });
 
+export const messageSchema = zod.object({
+  role: zod.nativeEnum(Role),
+  content: zod.string(),
+});
+
 export const inputSchema = zod.object({
   provider: zod.nativeEnum(Provider),
   provider_options: providerOptionsSchema,
   prompt: zod.string().optional(),
   system: zod.string().optional(),
-  messages: zod
-    .array(zod.object({ role: zod.nativeEnum(Role), content: zod.string() }))
-    .optional(),
+  messages: zod.array(messageSchema).optional(),
   model: zod.string(),
   temperature: zod.number().optional(),
   max_tokens: zod.number().optional(),

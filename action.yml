@@ -16,8 +16,8 @@ outputs:
     description: "Reason the generation finished"
 
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: "node20"
+  main: "dist/index.js"
 
 branding:
   color: "purple"
