@@ -62,7 +62,6 @@ if (!parsedInput.success) {
 }
 (0, action_1.default)(parsedInput.data)
     .then((result) => {
-    console.log(result);
     (0, core_1.setOutput)("text", result.text);
     (0, core_1.setOutput)("usage", result.usage);
     (0, core_1.setOutput)("finishReason", result.finishReason);

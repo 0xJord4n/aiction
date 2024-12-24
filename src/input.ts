@@ -15,6 +15,7 @@ export const messageSchema = zod.object({
 export const inputSchema = zod.object({
   provider: zod.nativeEnum(Provider),
   provider_options: providerOptionsSchema,
+  save_path: zod.string().optional(),
   prompt: zod.string().optional(),
   system: zod.string().optional(),
   messages: zod.array(messageSchema).optional(),
