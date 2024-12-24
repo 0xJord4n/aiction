@@ -10,7 +10,6 @@ if (!parsedInput.success) {
 
 runAction(parsedInput.data)
   .then((result) => {
-    console.log(result);
     setOutput("text", result.text);
     setOutput("usage", result.usage);
     setOutput("finishReason", result.finishReason);
