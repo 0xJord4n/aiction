@@ -4,6 +4,8 @@ import type { Output } from "./types";
 import { CoreMessage, generateText } from "ai";
 import type { inputSchema } from "./input";
 import fs from "fs";
+import path from "path";
+
 export default async (input: z.infer<typeof inputSchema>): Promise<Output> => {
   const llmResponse = await generateText({
     model: provider(input.provider, input.provider_options)(input.model),
@@ -18,6 +20,8 @@ export default async (input: z.infer<typeof inputSchema>): Promise<Output> => {
   });
 
   if (input.save_path) {
+    const dir = path.dirname(input.save_path);
+    fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(input.save_path, llmResponse.text, {
       encoding: "utf-8",
     });
