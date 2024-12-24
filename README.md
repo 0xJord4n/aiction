@@ -58,7 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate AI Text
-        uses: 0xjord4n/aixion@v1.0.0
+        uses: 0xjord4n/aixion@v1.0.2
         with:
           config: >
             {
