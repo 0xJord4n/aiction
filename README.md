@@ -58,7 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Generate AI Text
-        uses: 0xjord4n/aixion@v1.0.2
+        uses: 0xjord4n/aixion@v1.1.0
         with:
           config: >
             {
@@ -162,7 +162,11 @@ config: >
 - `top_p`: Nucleus sampling parameter
 - `frequency_penalty`: Repetition control
 - `presence_penalty`: Topic diversity control
-- `stop`: Array of sequences where the API will stop generating further tokens.
+- `stop`: Array of sequences where the API will stop generating further tokens
+
+### Miscellaneous Options
+
+- `save_path`: Path where the response will be saved (optional)
 
 ## Outputs
 
